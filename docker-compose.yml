@@ -24,4 +24,4 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: developer
       MYSQL_PASSWORD: developer
-      MYSQL_DATABASE: asmacd
+      MYSQL_DATABASE: test
