@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  web:
+    image: nginx
+    ports:
+     - "8080:80"
+    volumes:
+     - .:/var/www/html
+     - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+
+  php:
+    build: ./docker/php
+    volumes:
+      - .:/var/www/html
+
+  db:
+    image: mysql/mysql-server
+    ports:
+      - "3307:3306"
+    volumes:
+      - /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: developer
+      MYSQL_DATABASE: asmacd
